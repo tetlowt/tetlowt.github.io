@@ -1,0 +1,55 @@
+import random
+import time
+import pyfiglet 
+import keyboard
+import os
+bet = 0
+casino = 0
+Number_1 = 0
+Number_2 = 0
+Playing = True
+pot = bet
+result = pyfiglet.figlet_format("H i g h e r  o r  l o w e r", font = "3-d" ) 
+
+
+def title():
+    print(result)
+
+#intro
+print (" ")
+print ("You will be given an number and you need to guess if the next number is lower or higher.n/ The game will continue untill you cash out or lose")
+print (" ")
+bet = (int(input("What is your bet?  ")))
+
+ 
+title()
+
+
+#main
+
+
+while Playing == True:
+    Number_1 = random.randint(1,100)
+    Number_2 = random.randint(1,100)
+    print (f"Number: "+Number_1)
+    Guess = ("Higher or Lower?  ")
+    if "i" in Guess:
+        if Number_1 < Number_2:
+            bet = bet * 2
+            print("CORRECT")
+            print (f"Your bet: £"+bet)
+        else:
+            Playing = False
+            casino = casino + bet
+            print (f"You just lost £{bet}")
+    elif "o" in Guess:
+        if Number_1 > Number_2:
+            bet = bet * 2
+            print("CORRECT")
+            print (f"Your bet: £{bet}")
+        else:
+            Playing = False
+            casino = casino + bet
+            print (f"You just lost £{bet}")
+    else:
+        print ("You can't spell")
